@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoApp</title>
+</head>
+<body>
+    <h1>Welcome to your To Do App!</h1>
+    <a th:href="@{'/new'}">New task</a>
+    <h4>Unfinished tasks</h4>
+    <ul th:each="unfinishedtask : ${unfinishedtasks}">
+        <li th:text="${unfinishedtask.title}"></li><a th:href="@{'/taskdone/'+${unfinishedtask.id}}">Done!</a>
+    </ul>
+    <h4>Finished Tasks</h4>
+    <ul th:each="finishedtask : ${finishedtasks}">
+        <li th:text="${finishedtask.title}"></li>
+    </ul>
+</body>
+</html>
